@@ -1,0 +1,92 @@
+* { margin: 0; padding: 0; }
+body { background-color: #666666; }
+	
+/**
+ * Горизонтальное меню со вкладками
+ */
+ 
+.tabs-box {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+ /* Контейнер для вкладок */
+.tabs {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+
+/* Скрыть радиокнопки */
+.tabs [type="radio"] {
+	display: none;   
+}
+
+/* Подпись вкладки */
+.tabs label {
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 0 0px;
+	        flex: 1 0 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	text-align: center;
+	padding: 10px 20px;
+	min-width: 7em;
+	background-color: #eeeeee;
+	cursor: pointer;
+}
+
+/* Вкладка при наведении */
+.tabs [type="radio"]:hover + label {
+	background-color: #ffffff;
+}
+
+/* Активная вкладка */
+.tabs [type="radio"]:checked + label {
+	background-color: #ffffff;
+	z-index: 2;
+}
+
+/* Показать контент активной вкладки */
+.tabs #tab-1[type="radio"]:checked ~ .content.tab-1,
+.tabs #tab-2[type="radio"]:checked ~ .content.tab-2,
+.tabs #tab-3[type="radio"]:checked ~ .content.tab-3,
+.tabs #tab-4[type="radio"]:checked ~ .content.tab-4,
+.tabs #tab-5[type="radio"]:checked ~ .content.tab-5 {
+	display: block;
+}
+
+/* Контентная область */	
+.tabs .content {
+	display: none;
+	background-color: #ffffff;
+	padding: 0 20px;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	overflow-x: auto;
+	max-width: 100%;
+}
+
+/* Параграфы в контентой области */
+.tabs .content p {
+	text-align: justify;
+	padding: 10px 0 0;
+}
+
+.tabs .content p:first-child {
+	padding-top: 20px;
+}
+	
+.tabs .content p:last-child {
+	padding-bottom: 20px;
+}
